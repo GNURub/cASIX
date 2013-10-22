@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title></title>
+	<meta name="description" content="" />
+	<style>
+		li{
+			list-style: none;
+			margin:1%;
+		}
+	</style>
+	<script>
+	window.onload = function () {
+		var color = document.querySelector("#color")
+		,	body = document.querySelector("body")
+		,	age = document.querySelector("#age + input");
+		color.addEventListener("keyup", cambio);
+		color.addEventListener("change",cambio);
+		age.addEventListener("change",function(){
+			document.querySelector("#age").innerHTML = "Age: " + age.value;
+		});
+		function cambio() {
+			body.style.background = color.value;
+		}
+	}
+	</script>
+</head>
+<body>
+	<form action="#">
+		<ul>
+			<li><input type="text" required name="name" placeholder="your name" /></li>
+			<li><input type="text" required name="subname" placeholder="Your subname" /></li>
+			<li><label id="age">Age: </label><input type="range" name="age" /></li>
+			<li><input type="email" name="email" placeholder="Your email" required/></li>
+			<li><input type="tel" pattern="[1-9]{9}" placeholder="your telephone" name="telephone" /></li>
+			<li><label >A number between 1 and 12</label><input name="number" type="number" min="1" max="12" /></li>
+			<li><input type="date" name="brithday" /></li>
+			<li><input type="text" name="sports" placeholder="Your favorite sport"  list="sport" />
+				<datalist id="sport">
+				<option label="football" value="Football" />
+				<option label="basketball" value="Basketball" />
+				<option label="chess" value="Chess" />
+				<option label="cricket" value="Cricket" />
+				</datalist>
+			</li>
+			<li><input type="color" id="color"></li>
+		</ul>
+	</form>
+</body>
+</html>
